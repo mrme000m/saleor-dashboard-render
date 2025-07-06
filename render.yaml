@@ -2,7 +2,7 @@ services:
   - type: web
     name: saleor-dashboard
     env: static
-    buildCommand: chmod +x ./build-dashboard.sh && ./build-dashboard.sh
+    buildCommand: chmod +x ./build-dashboard-fixed.sh && ./build-dashboard-fixed.sh
     staticPublishPath: ./
     envVars:
       - key: API_URL
@@ -21,10 +21,15 @@ services:
         value: "en"
       - key: NODE_VERSION
         value: "20"
+      - key: NPM_CONFIG_PRODUCTION
+        value: "false"
     headers:
       - path: /*
         name: X-Robots-Tag
         value: noindex
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
     routes:
       - type: rewrite
         source: /*
