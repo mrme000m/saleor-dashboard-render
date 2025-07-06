@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: saleor-dashboard
+    env: static
+    buildCommand: chmod +x ./build-dashboard.sh && ./build-dashboard.sh
+    staticPublishPath: ./
+    envVars:
+      - key: API_URL
+        value: https://rb00-saleor-api-46439a8b0dc8.herokuapp.com/graphql/
+      - key: APP_MOUNT_URI
+        value: /
+      - key: APPS_MARKETPLACE_API_URL
+        value: https://apps.saleor.io/api/v2/saleor-apps
+      - key: EXTENSIONS_API_URL
+        value: ""
+      - key: APPS_TUNNEL_URL_KEYWORDS
+        value: ".ngrok.io;.saleor.live;.trycloudflare.com"
+      - key: IS_CLOUD_INSTANCE
+        value: "false"
+      - key: LOCALE_CODE
+        value: "en"
+      - key: NODE_VERSION
+        value: "20"
+    headers:
+      - path: /*
+        name: X-Robots-Tag
+        value: noindex
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

@@ -1,0 +1,14 @@
+{
+  "name": "saleor-dashboard-render",
+  "version": "1.0.0",
+  "description": "Saleor Dashboard configured for Render deployment",
+  "scripts": {
+    "build": "./build-dashboard.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrme000m/saleor-dashboard-render.git"
+  },
+  "author": "mrme000m",
+  "license": "MIT"
+}
