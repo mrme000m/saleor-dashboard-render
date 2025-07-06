@@ -2,7 +2,7 @@ services:
   - type: web
     name: saleor-dashboard
     env: static
-    buildCommand: chmod +x ./simple-build.sh && ./simple-build.sh
+    buildCommand: chmod +x ./improved-build.sh && ./improved-build.sh
     staticPublishPath: ./
     envVars:
       - key: NODE_VERSION
